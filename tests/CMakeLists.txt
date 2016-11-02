@@ -10,6 +10,7 @@ function(unit_test file)
   string(REPLACE "/" "_" testname ${file})
   add_executable(unit_test.${testname} ${CMAKE_CURRENT_LIST_DIR}/unit_tests/${file}.cpp)
   add_test(unit_test.${testname} unit_test.${testname})
+  target_link_libraries(unit_test.${testname} liblemonbuddy_static)
 endfunction()
 
 unit_test("utils/color")
